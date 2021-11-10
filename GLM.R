@@ -18,12 +18,26 @@ library(RColorBrewer)
 data <- read.csv("./data/videogame_sales.csv")
 data
 
+
+## Draw gridplot, showing the distributions of different combinations
+# on the log scale.
+
+ggplot(data=data, aes(x=Sales, fill=Platform))+
+  geom_density() +
+  facet_grid(Genre~Platform) +scale_x_log10()+
+  theme_fivethirtyeight() +
+  scale_fill_fivethirtyeight()+
+  theme(legend.position="none",
+        axis.title = element_text(),
+        strip.text = element_text(size=10, face='bold'),
+        strip.placement = "outside") + ggtitle('Observed distribution of Sales') + xlab('Sales (log scale)')
+
 #Define a counter helper function, used in the plot
 give.n <- function(x){
   return(c(y = -0.3, label = length(x))) 
 }
 
-#Draw violin plot #1, showing initial distribution of data between
+#Draw violin plot, showing initial distribution of data between
 #genres and platforms
 ggplot(data=data, aes(x = Genre, y = Sales, fill = Genre)) + 
   geom_jitter(aes(color=Genre), height = 0, width = 0.3, alpha=0.5)+

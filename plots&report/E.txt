@@ -1,6 +1,0 @@
-"Xbox is the most \nprofitable platform",'Shooters are more\n profitable than RPGs',
-                                 'PC is the least \nprofitable platform',
-                                 'Shooters on Xbox\n
-                                 are the most profitable'
-
-2, 3, 1, 4
